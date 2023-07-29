@@ -1,0 +1,36 @@
+import React from 'react';
+import { FlagCircleRounded, SpaceDashboardRounded, SettingsRounded, Brightness4Rounded, Person2Outlined } from '@mui/icons-material';
+import './Sidebar.css';
+
+export default function Sidebar({ theme, changeTheme }) {
+
+    function handleContainerClick(event) {
+        const containers = document.getElementsByClassName('container');
+        Array.from(containers).forEach((element) => {
+            element.style.backgroundColor = null;
+        });
+        event.currentTarget.style.backgroundColor = theme?.background;
+    }
+
+    return (
+        <aside style={{ backgroundColor: theme?.sidebar, borderRight: '1px solid', borderRightColor: theme?.borders }}>
+            <div className="container" style={{ backgroundColor: theme?.background, color: theme?.text }} onClick={handleContainerClick}>
+                <FlagCircleRounded />
+                <div>Goals</div>
+            </div>
+            <div className="container" style={{ color: theme?.text }} onClick={handleContainerClick}>
+                <SpaceDashboardRounded />
+                <div>Cards</div>
+            </div>
+            <div className="settings">
+                <div className="container" style={{ color: theme?.text }} onClick={handleContainerClick}>
+                    <Person2Outlined />
+                    <div>Profile</div>
+                </div>
+                <div className="contrast" style={{ backgroundColor: theme?.background, borderColor: theme?.borders, color: theme?.text }}>
+                    <Brightness4Rounded onClick={changeTheme} />
+                </div>
+            </div>
+        </aside>
+    );
+}
