@@ -1,9 +1,8 @@
 import React from 'react';
-import { FlagCircleRounded, SpaceDashboardRounded, SettingsRounded, Brightness4Rounded, Person2Outlined } from '@mui/icons-material';
-import './Sidebar.css';
+import { FlagCircleRounded, SpaceDashboardRounded, Brightness4Rounded, Person2Outlined } from '@mui/icons-material';
+import './sidebar.css';
 
 export default function Sidebar({ theme, changeTheme }) {
-
     function handleContainerClick(event) {
         const containers = document.getElementsByClassName('container');
         Array.from(containers).forEach((element) => {
@@ -14,7 +13,7 @@ export default function Sidebar({ theme, changeTheme }) {
 
     return (
         <aside style={{ backgroundColor: theme?.sidebar, borderRight: '1px solid', borderRightColor: theme?.borders }}>
-            <div className="container" style={{ backgroundColor: theme?.background, color: theme?.text }} onClick={handleContainerClick}>
+            <div className="container" style={{ backgroundColor: theme?.background, color: theme?.text }} >
                 <FlagCircleRounded />
                 <div>Goals</div>
             </div>
@@ -22,13 +21,13 @@ export default function Sidebar({ theme, changeTheme }) {
                 <SpaceDashboardRounded />
                 <div>Cards</div>
             </div>
-            <div className="settings">
+            <div className="profile">
                 <div className="container" style={{ color: theme?.text }} onClick={handleContainerClick}>
                     <Person2Outlined />
-                    <div>Profile</div>
+                    <div>Income</div>
                 </div>
                 <div className="contrast" style={{ backgroundColor: theme?.background, borderColor: theme?.borders, color: theme?.text }}>
-                    <Brightness4Rounded onClick={changeTheme} />
+                    <Brightness4Rounded onClick={changeTheme} sx={{ ':hover': { cursor: 'pointer' } }} />
                 </div>
             </div>
         </aside>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Sidebar from './components/Sidebar/Sidebar';
-import Goals from './components/Goals/Goals';
+import Sidebar from './components/sidebar/sidebar.jsx';
+import Goals from './components/goals/goals.jsx';
+import Income from './components/income/income.jsx';
 
 import { useGetThemeColor } from './utils/useGetThemeColor';
 import Constants from './utils/constants';
@@ -30,6 +31,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Goals theme={theme} />} />
+          <Route path="/income" element={<Income theme={theme} />} />
         </Routes>
       </BrowserRouter>
     </div >
